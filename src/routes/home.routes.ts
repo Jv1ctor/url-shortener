@@ -1,9 +1,8 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import * as homeController from "../controllers/homeController"
 
 const router = Router()
 
-router.get('/', (req: Request, res: Response) => {
-  res.send('hello world')
-})
+router.get('/', homeController.home)
 
 export default router
