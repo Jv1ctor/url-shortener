@@ -12,22 +12,43 @@
 </head>
 
 <body>
-  <header class="bg-black flex justify-between p-5 ">
-    <img src="/img/Linkly.svg" alt="logo">
+  <header class="bg-black">
+    <nav class="container mx-auto flex justify-between p-5 ">
+      <img src="/img/Linkly.svg" alt="logo">
+    
+      <div class="flex gap-4">
+        <div class="flex place-items-center gap-2 bg-grey text-white border-2 border-[#353C4A] px-5 py-2 rounded-full cursor-pointer hover:bg-primaryBlue hover:border-transparent hover:shadow-activeShadow transition-all duration-300 ease-in-out">
+          <a href="">Login</a>
+          <span>
+            <img src="img/icons/signIn.png" alt="login icon">
+          </span>
+        </div>
+    
+        <div class="hidden md:block text-white bg-primaryBlue shadow-activeShadow px-5 py-2 rounded-full cursor-pointer border-2 border-primaryBlue hover:bg-grey transition-colors duration-300 ease-in-out">
+          <a href="">Register Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-  <div class="flex gap-4">
-    <div class="flex place-items-center gap-2 bg-grey text-white border-2 border-[#353C4A] px-5 py-2 rounded-full cursor-pointer hover:bg-primaryBlue hover:border-transparent hover:shadow-activeShadow transition-all duration-300 ease-in-out">
-      <a href="">Login</a>
-      <span>
-        <img src="img/icons/signIn.png" alt="login icon">
+  <main class="bg-black bg-cubes bg-contain h-screen pt-14 flex flex-col place-items-center">
+    <h1 class="bg-gradient bg-clip-text text-transparent font-extrabold text-4xl text-center pb-8 sm:text-5xl ">Shorten Your Loooong Links :)</h1>
+    <p class="font-light text-lite text-center max-w-[50ch] pb-10 text-sm sm:text-lg">Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.</p>
+
+    <div class="relative flex items-center">
+      <span class="absolute left-0 ml-3 sm:ml-5">
+        <img class="sm:w-[24px] sm:h-[24px]" src="/img/icons/link.png" width="20" height="20" alt="link icon">
+      </span>
+
+      <input class="placeholder:text-lite text-xs text-lite bg-black border-4 border-[#353C4A] rounded-full px-10 py-3 focus:outline-none focus:border-primaryBlue focus:shadow-activeShadow transition-all duration-200 ease-in-out sm:px-16 sm:py-4 sm:text-lg" type="text" name="url" id="url" placeholder="Enter the link here">
+
+      <span class="absolute right-0 bg-transparent border-2 border-[#353C4A] rounded-full p-3 mr-2 hover:bg-primaryBlue hover:shadow-activeShadow hover:border-transparent cursor-pointer transition-all duration-200 ease-in-out sm:p-5"> 
+        <img class="sm:w-[14px] sm:h-[14px]" src="/img/icons/rightArrow.png" width="10" height="10" alt="seta para direita icon">
       </span>
     </div>
 
-    <div class="hidden md:block text-white bg-primaryBlue shadow-activeShadow px-5 py-2 rounded-full cursor-pointer border-2 border-primaryBlue hover:bg-grey transition-colors duration-300 ease-in-out">
-      <a href="">Register Now</a>
-    </div>
-  </div>
-  </header>
+  </main>
+
 </body>
 
 </html>
