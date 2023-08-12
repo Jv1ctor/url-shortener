@@ -1,6 +1,6 @@
 import sequelize from "../instances/db";
 import { DataTypes, Model } from "sequelize";
-
+import { User } from "./User";
 
 interface UrlInterface extends Model{
   id: number,
@@ -8,7 +8,8 @@ interface UrlInterface extends Model{
   original_url: string,
   clicks: number,
   status: 'active'| 'inactive',
-  createAt: Date
+  createAt: Date,
+  user_id: string,
 }
 
 const Url = sequelize.define<UrlInterface>('Url', {
@@ -30,11 +31,22 @@ const Url = sequelize.define<UrlInterface>('Url', {
   status: {
     type: DataTypes.STRING,
   },
+  user_id:{
+    type: DataTypes.UUID,
+  }
 },
 {
   tableName: 'urls',
   createdAt: true,
   updatedAt: false,
+})
+
+User.hasMany(Url, {
+  foreignKey: 'url_id',
+})
+
+Url.belongsTo(User, {
+  foreignKey: 'url_id'
 })
 
 export {UrlInterface, Url}
