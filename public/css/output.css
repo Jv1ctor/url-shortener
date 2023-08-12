@@ -686,6 +686,10 @@ video {
   border-radius: 9999px;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
@@ -771,6 +775,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -794,12 +803,24 @@ video {
   padding-bottom: 8rem;
 }
 
+.pb-36 {
+  padding-bottom: 9rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .pt-14 {
   padding-top: 3.5rem;
+}
+
+.pt-24 {
+  padding-top: 6rem;
 }
 
 .text-center {
@@ -813,6 +834,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-sm {
@@ -856,12 +882,21 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-red {
+  --tw-text-opacity: 1;
+  color: rgb(209 4 4 / var(--tw-text-opacity));
+}
+
 .shadow-activeShadow {
   --tw-shadow: 10px 9px 22px 0px;
   --tw-shadow-colored: 10px 9px 22px 0px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: rgba(20, 78, 227, 0.38);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-all {
@@ -1005,6 +1040,11 @@ body{
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1022,6 +1062,10 @@ body{
 
   .lg\:h-\[24px\] {
     height: 24px;
+  }
+
+  .lg\:w-1\/3 {
+    width: 33.333333%;
   }
 
   .lg\:w-\[14px\] {
@@ -1046,6 +1090,16 @@ body{
     padding-right: 2.25rem;
   }
 
+  .lg\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .lg\:py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
   .lg\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -1054,6 +1108,11 @@ body{
   .lg\:py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .lg\:text-lg {
