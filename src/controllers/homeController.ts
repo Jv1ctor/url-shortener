@@ -7,11 +7,11 @@ const home = async (req: Request, res: Response) => {
 }
 
 const login = (req: Request, res: Response) => {
-  res.render('pages/login')
+  res.render('pages/emAndamento')
 }
 
 const register = (req: Request, res: Response) => {
-  res.render('pages/register')
+  res.render('pages/emAndamento')
 }
 
 export { home, login, register }
