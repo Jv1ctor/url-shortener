@@ -1,6 +1,7 @@
 import sequelize from "../instances/db";
 import { DataTypes, Model } from "sequelize";
 import { User } from "./User";
+import { formatDate } from "../helpers/formattedDate";
 
 interface UrlInterface extends Model{
   id: number,
@@ -8,7 +9,7 @@ interface UrlInterface extends Model{
   original_url: string,
   clicks: number,
   status: 'active'| 'inactive',
-  createAt: Date,
+  createdAt: Date,
   user_id: string,
 }
 
@@ -25,11 +26,26 @@ const Url = sequelize.define<UrlInterface>('Url', {
   original_url: {
     type: DataTypes.STRING,
   },
+  short_url: {
+    type: DataTypes.VIRTUAL,
+    get(){
+      return `${process.env.BASE_URL}/${this.code_url}` 
+    }
+  },
   clicks: {
     type: DataTypes.INTEGER,
+    defaultValue: 0,
   },
   status: {
     type: DataTypes.STRING,
+    defaultValue: 'active'
+  },
+  date: {
+    type: DataTypes.VIRTUAL,
+    get(){
+      const dateFormated = formatDate(this.createdAt)
+      return `${dateFormated}`
+    },
   },
   user_id:{
     type: DataTypes.UUID,
@@ -42,11 +58,11 @@ const Url = sequelize.define<UrlInterface>('Url', {
 })
 
 User.hasMany(Url, {
-  foreignKey: 'url_id',
+  foreignKey: 'user_id',
 })
 
 Url.belongsTo(User, {
-  foreignKey: 'url_id'
+  foreignKey: 'user_id'
 })
 
 export {UrlInterface, Url}

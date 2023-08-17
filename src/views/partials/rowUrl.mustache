@@ -1,0 +1,45 @@
+<tr>
+  <td class="bg-grey bg-opacity-25 p-5 mb-1">
+    <div class="flex justify-between ">
+
+      <div class="flex items-center gap-2">
+        <span class="text-[#C9CED6] text-xs lg:text-sm"><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></span>
+
+        <span class="bg-[#1C283F] p-2 rounded-full cursor-pointer hover:bg-primaryBlue" data-js="copyBtn">
+          <img class="pointer-events-none" src="/img/icons/copy.png" width="16" height="16" alt="copy icon">
+        </span>
+      </div>
+
+      <span class="md:hidden bg-[#1C283F] p-2 rounded-full cursor-pointer hover:bg-[#141d2d] transition-transform ease-in duration-200" data-js="moreBtn">
+        <img class="pointer-events-none" src="/img/icons/downArrow.png" width="16" height="16" alt="ver mais icon">
+      </span>
+
+    </div>
+
+    <div class="h-0 invisible block sm:hidden" data-js="moreMenu">
+      <ul class="text-lite text-xs">
+        <li><strong>Original Link: </strong><span>{{ original_url }}</span></li>
+        <li><strong>Clicks: </strong><span>{{ clicks }}</span></li>
+        <li><strong>Status: </strong><span>{{ status }}</span></li>
+        <li><strong>Date: </strong><span>{{ date }}</span></li>
+      </ul>
+    </div>
+
+  </td>
+
+  <td class="max-md:hidden p-5 bg-grey bg-opacity-25">
+    <span class="text-[#C9CED6] text-xs lg:text-sm"><a href="{{ short_url }}" target="_blank">{{ original_url }}</a></span>
+  </td>
+
+  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+    <span class="text-[#C9CED6] text-xs lg:text-sm">{{ clicks }}</span>
+  </td>
+
+  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+    <span class="text-[#C9CED6] text-xs lg:text-sm">{{ status }}</span>
+  </td>
+
+  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+    <span class="text-[#C9CED6] text-xs lg:text-sm">{{ date }}</span>
+  </td>
+</tr>

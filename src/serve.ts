@@ -17,7 +17,7 @@ server.use( express.urlencoded({ extended:true }))
 
 server.use(homeRouter)
 
-server.use( (req: Request, res: Response) => {
+server.use( (_req: Request, res: Response) => {
   res.status(404).send('pagina nao encontrada')
 })
 
