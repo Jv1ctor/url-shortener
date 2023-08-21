@@ -7,6 +7,7 @@ interface UrlInterface extends Model{
   id: number,
   code_url: string,
   original_url: string,
+  idx_original_url: string
   clicks: number,
   status: 'active'| 'inactive',
   createdAt: Date,
@@ -24,7 +25,8 @@ const Url = sequelize.define<UrlInterface>('Url', {
     unique: true,
   },
   original_url: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
+    unique: true
   },
   short_url: {
     type: DataTypes.VIRTUAL,

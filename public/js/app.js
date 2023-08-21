@@ -1,14 +1,49 @@
 const currentUrl = document.URL
 const url = new URL(currentUrl)
 
+const messageErr = (text) => {
+  const span = document.createElement("span")
+  span.classList.add("text-red", "text-xs", "text-center", "mt-2", "lg:text-sm","err-url")
+  span.textContent = text
+
+  return span
+}
+
 if (url.pathname === "/") {
   const tableUrls = document.querySelector('[data-js="table"]')
+  const formUrl = document.querySelector('[data-js="createShortUrl"]')
+
+  const isUrl = (value) => {
+    try {
+      let url = new URL(value)    
+      return url  
+    } catch (error) {
+      return false
+    }
+  }
+
+  formUrl.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const { target } = event
+    const url = target.url.value
+    const urlIsOK = isUrl(url) 
+    const err = messageErr('url invalid')
+    if(urlIsOK && url.length !== 0){
+      formUrl.submit()
+    }else{
+      const existErrUrl = document.querySelector('.err-url')
+      if(!existErrUrl && url.length !== 0) {
+        formUrl.insertAdjacentElement('afterend',err)
+      }
+    }
+
+  })
+
 
   tableUrls.addEventListener("click", ({ target }) => {
     // copy btn
     if (target.dataset.js === "copyBtn") {
       const textCopy = target.previousElementSibling.textContent
-      console.log(textCopy)
       navigator.clipboard.writeText(textCopy)
     }
 
@@ -27,7 +62,14 @@ if (url.pathname === "/") {
         moreMenu.classList.remove("h-full")
       }
     }
+
+    if(target.dataset.js === "link"){
+      setTimeout( () => {
+        window.location.reload(true)
+      }, 500)
+    }
   })
+
 }
 
 // validate register
@@ -35,14 +77,6 @@ if (url.pathname === "/") {
 if (url.pathname === "/register") {
   const form = document.querySelector('[data-js="form"]')
   const inputs = Array.from(document.querySelectorAll('[data-js="input"]'))
-
-  const messageErr = (text) => {
-    const span = document.createElement("span")
-    span.classList.add("text-red", "text-xs", "text-center")
-    span.textContent = text
-
-    return span
-  }
 
   const insertFieldError = (inputArr) => {
     const messageExistErr = form.querySelectorAll("span")

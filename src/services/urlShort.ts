@@ -6,20 +6,21 @@ const createUrlShort = async (urlOriginal: string, user: UserInterface) => {
   try {
     const originalUrl = urlOriginal
     if (user && originalUrl !== "") {
-      let url: UrlInterface = Url.build({
-        code_url: generateCode(10),
-        original_url: originalUrl,
-        user_id: user.id_user,
+      let [url, created] = await Url.findOrBuild({
+        where: { original_url: originalUrl },
+        defaults: {
+          code_url: generateCode(10),
+          original_url: originalUrl,
+          user_id: user.id_user,
+        }
       })
 
+      if(!created) return { message: "data already exists" }
       await url.save()
     }
+    return null
   }catch(err) {
-    if (err instanceof Error) {
-      if (err.name === "SequelizeUniqueConstraintError") {
-        return { message: "data already exists" }
-      }
-    }
+    console.log(err)
     throw new Error('database error')
   }
 }
@@ -33,4 +34,18 @@ const findUrlShort = async (user: UserInterface) => {
   return null
 }
 
-export { createUrlShort, findUrlShort }
+const findOriginalUrl = async (code: string) => {
+  const queryUrl = await Url.findOne({ where: { code_url: code } })
+
+  if(queryUrl){
+    const { original_url } = queryUrl
+    queryUrl.clicks++
+    await queryUrl.save()
+    
+    return original_url
+  }
+
+  return null
+}
+
+export { createUrlShort, findUrlShort, findOriginalUrl }
