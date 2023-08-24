@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc && tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "concurrently \"tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch\" \"nodemon -e ts,mustache,json src/serve.ts\" "
   },
