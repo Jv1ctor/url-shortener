@@ -20,7 +20,6 @@ const createUrlShort = async (urlOriginal: string, user: UserInterface) => {
     }
     return null
   }catch(err) {
-    console.log(err)
     throw new Error('database error')
   }
 }
@@ -48,4 +47,17 @@ const findOriginalUrl = async (code: string) => {
   return null
 }
 
-export { createUrlShort, findUrlShort, findOriginalUrl }
+const findUrlDelete = async (code: string) => {
+  try {
+    const queryUrl = await Url.findOne({ where: { code_url: code }})
+    if(queryUrl){
+      await queryUrl.destroy()
+      return true
+    }
+    return false
+  }catch(err) {
+    throw new Error('delete short url error')
+  }
+}
+
+export { createUrlShort, findUrlShort, findOriginalUrl, findUrlDelete }

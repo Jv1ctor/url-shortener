@@ -24,16 +24,16 @@
   </nav>
 </header>
 
-<main class="bg-black bg-cubes bg-contain h-full pb-64">
-  <div class="pt-14 flex flex-col place-items-center mb-14">
-    <h1 class="bg-gradient bg-clip-text text-transparent font-extrabold text-4xl text-center pb-8 sm:text-5xl ">
+<main class="bg-black bg-cubes bg-contain h-full pb-64 lg:bg-swirl lg:bg-no-repeat  ">
+  <div class="pt-14 flex flex-col place-items-center pb-14 relative lg:pb-20">
+    <h1 class="bg-gradient animate-background bg-300 bg-clip-text text-transparent font-extrabold text-4xl text-center pb-8 sm:text-5xl ">
       Shorten Your Loooong Links :)
     </h1>
     <p class="font-light text-lite text-center max-w-[50ch] pb-10 text-sm sm:text-lg">
       Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.
     </p>
 
-    <form class="relative flex items-center w-4/5" action="/" method="post">
+    <form class="relative flex items-center w-4/5" action="/" method="post" data-js="createShortUrl">
       <label for="url" class="absolute left-0 ml-3 sm:ml-5">
         <img class="lg:w-[24px] lg:h-[24px]" src="/img/icons/link.png" width="20" height="20" alt="link icon">
       </label>
@@ -48,6 +48,9 @@
       </button>
     </form>
 
+    {{#error}}
+      <span class="absolute bottom-0 text-white text-xs bg-red rounded-lg p-3 animate-message lg:p-5 lg:text-sm err-submit">{{ message }}</span>
+    {{/error}}
   </div>
 
   <div class="px-2 md:px-5">
@@ -57,7 +60,7 @@
           <h3 class="text-lite text-sm  text-start font-bold">Shorten Links</h3>
         </th>
 
-        <th class="max-md:hidden bg-grey p-5 mb-1">
+        <th class="max-md:hidden bg-grey lg:p-5 mb-1">
           <h3 class="text-lite text-sm  text-start font-bold">Original Links</h3>
         </th>
 
@@ -69,9 +72,11 @@
           <h3 class="text-lite text-sm  text-center font-bold">Status</h3>
         </th>
 
-        <th class="max-md:hidden bg-grey p-5 rounded-tr-lg mb-11">
+        <th class="max-md:hidden bg-grey p-5 mb-1">
           <h3 class="text-lite text-sm  text-center font-bold">Date</h3>
         </th>
+
+        <th class="bg-grey rounded-tr-lg p-5 mb-1"></th>
       </tr>
 
       {{#url}}

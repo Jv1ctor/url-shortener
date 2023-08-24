@@ -3,7 +3,7 @@
     <div class="flex justify-between ">
 
       <div class="flex items-center gap-2">
-        <span class="text-[#C9CED6] text-xs lg:text-sm"><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></span>
+        <span class="text-[#C9CED6] text-xs lg:text-sm max-sm:max-w-[20ch] truncate"><a href="{{ short_url }}" target="_blank" data-js="link">{{ short_url }}</a></span>
 
         <span class="bg-[#1C283F] p-2 rounded-full cursor-pointer hover:bg-primaryBlue" data-js="copyBtn">
           <img class="pointer-events-none" src="/img/icons/copy.png" width="16" height="16" alt="copy icon">
@@ -16,9 +16,9 @@
 
     </div>
 
-    <div class="h-0 invisible block sm:hidden" data-js="moreMenu">
+    <div class="h-0 invisible block sm:hidden peer" data-js="moreMenu">
       <ul class="text-lite text-xs">
-        <li><strong>Original Link: </strong><span>{{ original_url }}</span></li>
+        <li><strong>Original Link: </strong><span class=" block max-w-[30ch] truncate" title="{{ original_url }}">{{ original_url }}</span></li>
         <li><strong>Clicks: </strong><span>{{ clicks }}</span></li>
         <li><strong>Status: </strong><span>{{ status }}</span></li>
         <li><strong>Date: </strong><span>{{ date }}</span></li>
@@ -27,19 +27,25 @@
 
   </td>
 
-  <td class="max-md:hidden p-5 bg-grey bg-opacity-25">
-    <span class="text-[#C9CED6] text-xs lg:text-sm"><a href="{{ short_url }}" target="_blank">{{ original_url }}</a></span>
+  <td class="max-md:hidden bg-grey bg-opacity-25 lg:p-5">
+    <span class="block text-[#C9CED6] text-xs lg:text-sm max-w-[50ch] truncate"><a href="{{ short_url }}" target="_blank" title="{{ original_url }}" data-js="link">{{ original_url }}</a></span>
   </td>
 
-  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+  <td class="max-md:hidden bg-grey bg-opacity-25 text-center lg:p-5">
     <span class="text-[#C9CED6] text-xs lg:text-sm">{{ clicks }}</span>
   </td>
 
-  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+  <td class="max-md:hidden bg-grey bg-opacity-25 text-center lg:p-5">
     <span class="text-[#C9CED6] text-xs lg:text-sm">{{ status }}</span>
   </td>
 
-  <td class="max-md:hidden p-5 bg-grey bg-opacity-25 text-center">
+  <td class="max-md:hidden bg-grey bg-opacity-25 text-center lg:p-5">
     <span class="text-[#C9CED6] text-xs lg:text-sm">{{ date }}</span>
+  </td>
+
+  <td class="bg-grey bg-opacity-25 text-center lg:p-5">
+    <a href="/delete/{{ code_url }}" class="flex w-max justify-center items-center bg-red rounded-full p-2 border-2 border-transparent hover:bg-grey hover:border-primaryBlue">
+      <img class="lg:w-5" src="/img/icons/delete.png" alt="delete icon" width="16" height="16">
+    </a>
   </td>
 </tr>
