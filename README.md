@@ -3,7 +3,7 @@ Projeto encurtador de url feito com Nodejs, express, typescript.
 Não está completo.
 
 ### Pré-requisitos globais:
-`npm i -g nodemon typescript ts-node`
+`npm i -g nodemon typescript ts-node concurrently`
 
 ### Instalação
 `npm install` 
