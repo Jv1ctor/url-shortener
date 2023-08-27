@@ -49,17 +49,17 @@
     </form>
 
     {{#error}}
-      <span class="absolute bottom-0 text-white text-xs bg-red rounded-lg p-3 animate-message lg:p-5 lg:text-sm err-submit">{{ message }}</span>
+    <span class="absolute bottom-0 text-white text-xs bg-red rounded-lg p-3 animate-message lg:p-5 lg:text-sm err-submit">{{ message }}</span>
     {{/error}}
   </div>
 
-  <div class="px-2 md:px-5">
+  <div class="px-2 md:px-5 ">
     <table class="w-full" data-js="table">
       <tr>
         <th class="bg-grey p-5 mb-1 max-md:rounded-t-lg  md:rounded-tl-lg">
           <h3 class="text-lite text-sm  text-start font-bold">Shorten Links</h3>
         </th>
-
+        
         <th class="max-md:hidden bg-grey lg:p-5 mb-1">
           <h3 class="text-lite text-sm  text-start font-bold">Original Links</h3>
         </th>
@@ -71,18 +71,25 @@
         <th class="max-md:hidden bg-grey p-5 mb-1">
           <h3 class="text-lite text-sm  text-center font-bold">Status</h3>
         </th>
-
+        
         <th class="max-md:hidden bg-grey p-5 mb-1">
           <h3 class="text-lite text-sm  text-center font-bold">Date</h3>
         </th>
 
         <th class="bg-grey rounded-tr-lg p-5 mb-1"></th>
       </tr>
-
+      
       {{#url}}
         {{>partials/rowUrl}}
       {{/url}}
-
+      {{^url}}
+      <tr class="relative">
+        <td class="text-base text-white text-center lg:text-xl absolute left-1/2 -translate-x-1/2 top-10">
+          Enter a url to shorten
+        </td>
+      </tr>
+      {{/url}}
+      
     </table>
   </div>
 </main>

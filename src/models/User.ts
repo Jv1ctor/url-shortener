@@ -13,16 +13,20 @@ const User = sequelize.define<UserInterface>('User', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
+    allowNull: true
   },
   email_user: {
     type: DataTypes.STRING,
-    unique: true
+    unique: true,
+    allowNull: true
   },
   name_user: {
     type: DataTypes.STRING,
+    allowNull: true
   },
   password_user: {
     type: DataTypes.STRING,
+    allowNull: true
   }
 
 }, {

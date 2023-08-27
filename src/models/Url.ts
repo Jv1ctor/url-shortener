@@ -19,17 +19,21 @@ const Url = sequelize.define<UrlInterface>('Url', {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
+    allowNull: true
   },
   code_url: {
     type: DataTypes.STRING,
     unique: true,
+    allowNull: true
   },
   original_url: {
     type: DataTypes.TEXT,
-    unique: true
+    unique: true,
+    allowNull: true
   },
   short_url: {
     type: DataTypes.VIRTUAL,
+    allowNull: true,
     get(){
       return `${process.env.BASE_URL}/${this.code_url}` 
     }
@@ -37,10 +41,12 @@ const Url = sequelize.define<UrlInterface>('Url', {
   clicks: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
+    allowNull: true
   },
   status: {
     type: DataTypes.STRING,
-    defaultValue: 'active'
+    defaultValue: 'active',
+    allowNull: true
   },
   date: {
     type: DataTypes.VIRTUAL,
@@ -51,6 +57,7 @@ const Url = sequelize.define<UrlInterface>('Url', {
   },
   user_id:{
     type: DataTypes.UUID,
+    allowNull: true
   }
 },
 {

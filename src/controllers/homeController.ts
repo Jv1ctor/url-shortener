@@ -23,7 +23,6 @@ const shortUrlCreate = async (req: Request, res: Response) => {
     const urlOriginal: string = req.body.url
     const error = await createUrlShort(urlOriginal, user)
     const url = await findUrlShort(user)
-
     res.render("pages/home", { url, error })
   }
 }

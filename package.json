@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:create": "npx sequelize-cli db:create",
+    "db:migration": "npx sequelize-cli db:migrate",
+    "db:migration:undo": "npx sequelize-cli db:migrate:undo",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:seed:undo": "npx sequelize-cli db:seed:undo",
     "build": "tsc && tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "concurrently \"tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch\" \"nodemon -e ts,mustache,json src/serve.ts\" "
@@ -16,6 +21,8 @@
     "express": "^4.18.2",
     "mustache-express": "^1.3.2",
     "mysql2": "^3.6.0",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1"
   },
   "devDependencies": {
