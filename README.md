@@ -6,15 +6,15 @@ Não está completo.
 `npm i -g nodemon typescript ts-node concurrently`
 
 ### Variaveis de ambiente
-#### crie o arquivo `.env`
-#### adicione as seguintes variaveis: 
+#### crie o arquivo `.env` na raiz do diretorio
+#### adicione as seguintes variaveis no arquivo: 
 ```
-PORT=[porta que deseja ex: 80]
+PORT=80
 BASE_URL=http://localhost
-NAME_DB=[nome do banco de dados]
-USER_DB=[usuario]
+NAME_DB=url_shorten
+USER_DB=root
 DIALECT_DB=mysql
-PASSWORD_DB=[senha do banco de dados]
+PASSWORD_DB=1234
 PORT_DB=3306
 HOST_DB=127.0.0.1
 ```

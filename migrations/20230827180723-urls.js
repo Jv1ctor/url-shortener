@@ -17,7 +17,6 @@ module.exports = {
       },
       original_url: {
         type: Sequelize.TEXT,
-        unique: true,
         allowNull: true
       },
       clicks: {
@@ -42,7 +41,14 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true
       }
-    });
+    }, {
+      indexes: [
+        {
+          unique: true,
+          fields: ['original_url']
+        }
+      ]
+    })
     
   },
 
