@@ -8,15 +8,16 @@ Não está completo.
 ### Variaveis de ambiente
 #### crie o arquivo `.env`
 #### adicione as seguintes variaveis: 
-`PORT=[porta que deseja ex: 80]`
-`BASE_URL=http://localhost`
-`NAME_DB=[nome do banco de dados]`
-`USER_DB=[usuario]`
-`DIALECT_DB=mysql`
-`PASSWORD_DB=[senha do banco de dados]`
-`PORT_DB=3306`
-`HOST_DB=127.0.0.1`
-
+```
+PORT=[porta que deseja ex: 80]
+BASE_URL=http://localhost`
+NAME_DB=[nome do banco de dados]
+USER_DB=[usuario]
+DIALECT_DB=mysql
+PASSWORD_DB=[senha do banco de dados]
+PORT_DB=3306
+HOST_DB=127.0.0.1
+````
 ### Instalação
 `npm install` 
 
