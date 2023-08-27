@@ -18,6 +18,7 @@ PASSWORD_DB=1234
 PORT_DB=3306
 HOST_DB=127.0.0.1
 ```
+
 ### Instalação
 `npm install` 
 
@@ -33,4 +34,4 @@ HOST_DB=127.0.0.1
 `npm run start-dev`
 
 ### link do design
-[Linkly](https://www.figma.com/community/file/1238543222697425130/URL-Shorter-Website-Design)
+[Linkly By Mohammed Hijas](https://www.figma.com/community/file/1238543222697425130/URL-Shorter-Website-Design)
